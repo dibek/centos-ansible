@@ -15,8 +15,6 @@
     - role: oracle-java
       server:
           oracle_java_version: '8'
-    - ansible-role-intellij
-    - fawkes_project
 
 
 
