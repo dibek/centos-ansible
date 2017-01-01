@@ -1,3 +1,14 @@
-     - name: Install Chrome Browser
-       apt: pkg=chromium-browser state=installed update_cache=true
+ - name: Install Google Chrome repo
+   become: true
+   become_user : root	
+   copy: src=google-chrome.repo dest=/etc/yum.repos.d/
 
+ - name: Import Google Chrome signing key
+   become : true
+   become_user: root	
+   rpm_key: key=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present 
+
+ - name: Install Google Chrome
+   become : true
+   become_user : root
+   yum: name=google-chrome-stable state=present

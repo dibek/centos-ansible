@@ -1,2 +1,4 @@
    - name: Install zsh
-     apt: pkg=zsh state=installed update_cache=true
+     become : yes
+     become_user : root		
+     yum: name=zsh state=latest update_cache=true

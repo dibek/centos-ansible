@@ -1,2 +1,2 @@
    - name: Install Pass
-     apt: pkg=pass state=installed update_cache=true
+     yum: name=pass state=latest update_cache=true

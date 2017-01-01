@@ -1,2 +1,2 @@
    - name: Install Cowsay
-     apt: pkg=cowsay state=installed update_cache=true
+     yum: name=cowsay state=latest update_cache=true

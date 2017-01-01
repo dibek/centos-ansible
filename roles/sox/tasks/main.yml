@@ -1,2 +1,2 @@
    - name: Install Sox
-     apt: pkg=sox state=installed update_cache=true
+     name: pkg=sox state=latest update_cache=true

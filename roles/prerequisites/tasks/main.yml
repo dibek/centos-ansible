@@ -4,6 +4,8 @@
     comment: "Dev User pair machines"
     uid: 1010
     group: users
+  become : yes
+  become_user : root	
 - name: Creates projects directory
   become: yes
   become_user: "{{ dev_user }}"
