@@ -2,8 +2,12 @@
 
   roles:
     - prerequisites    
+    - role: nvm
+      server:
+          nvm_version: v0.32.1
+          node_version: '5.7.0'
+          user: vagrant
     - zsh
-    - williamyeh.nodejs
     - williamyeh.oracle-java	
 
 

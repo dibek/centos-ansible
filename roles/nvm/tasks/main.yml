@@ -5,12 +5,10 @@
   with_items:
     - git
     - curl
-    - build-essential
-    - libssl-dev
   tags: nvm
 
-- name: Install nvm
-  become: yes
+- name: Download nvm
+  become: true
   become_user: "{{ server.user }}"
   git: 
     repo: 'https://github.com/creationix/nvm.git'
@@ -18,29 +16,11 @@
     version: v0.32.1 
   tags: nvm
 
-- name: Source nvm in ~/.profile
-  become: yes
+- name: Install nvm
+  become: true
   become_user: "{{ server.user }}"
-  lineinfile: >
-    dest=~/.profile
-    line="source ~/.nvm/nvm.sh"
-    create=yes
-  tags: nvm
+  command: ~/.nvm/install.sh
+  tags: nvm	
 
-- name: Install {{ server.node_version }}
-  command: sudo -iu {{ server.user }} nvm install {{ server.node_version }}
-  register: nvm_install_result
-  changed_when: "'is already installed.' not in nvm_install_result.stdout"
-  tags: nvm
 
-- name: Check if {{ server.node_version }} is the default node version
-  shell: sudo -iu {{ server.user }} nvm ls | grep -e 'default' | grep -e '{{ server.node_version }}'
-  register: nvm_check_default
-  changed_when: False
-  ignore_errors: True
-  tags: nvm
 
-- name: Set default node version to {{ server.node_version }}
-  command: sudo -iu {{ server.user }} nvm alias default {{ server.node_version }}
-  when: nvm_check_default|failed
-  tags: nvm
