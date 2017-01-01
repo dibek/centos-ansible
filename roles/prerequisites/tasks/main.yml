@@ -1,0 +1,12 @@
+- name : Add dev user
+  user:
+    name: "{{ dev_user }}"
+    comment: "Dev User pair machines"
+    uid: 1010
+    group: users
+- name: Creates projects directory
+  become: yes
+  become_user: "{{ dev_user }}"
+  file: path=/home/{{ dev_user}}/projects state=directory owner={{ dev_user }} group=users mode=0775
+
+

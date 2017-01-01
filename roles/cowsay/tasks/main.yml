@@ -1,0 +1,2 @@
+   - name: Install Cowsay
+     apt: pkg=cowsay state=installed update_cache=true

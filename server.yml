@@ -1,0 +1,23 @@
+- hosts: all
+
+  roles:
+    - prerequisites    
+    - zsh
+    - role: nvm
+      server:
+          nvm_version: v0.32.1
+          node_version: '5.7.0'
+          user: vagrant
+    - chromiumdriver
+    - chromiumbrowser
+    - pass
+    - launchpad-ppa-webupd8
+    - role: oracle-java
+      server:
+          oracle_java_version: '8'
+    - ansible-role-intellij
+    - fawkes_project
+
+
+
+

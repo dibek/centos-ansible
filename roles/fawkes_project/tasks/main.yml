@@ -1,0 +1,10 @@
+- name: Creates app name directory
+  become: yes
+  become_user: "{{ dev_machine_user }}"
+  file: path=/home/{{ dev_machine_user}}/projects/{{ app_name }} state=directory owner={{ dev_machine_user }} group=users mode=0775
+
+- name: Clone Fawkes Project
+  become: yes
+  become_user: "{{ dev_machine_user }}"
+  git: repo=git@github.com:{{ repo_name }}/{{ app_name }}.git dest=/home/{{ dev_machine_user }}/projects/{{ app_name }} key_file=~/.ssh/id_rsa accept_hostkey=yes force=yes
+

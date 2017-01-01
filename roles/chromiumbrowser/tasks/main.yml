@@ -1,0 +1,3 @@
+     - name: Install Chrome Browser
+       apt: pkg=chromium-browser state=installed update_cache=true
+

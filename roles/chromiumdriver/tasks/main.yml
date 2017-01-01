@@ -1,0 +1,3 @@
+     - name: Install Chrome Driver
+       apt: pkg=chromium-chromedriver state=installed update_cache=true
+
