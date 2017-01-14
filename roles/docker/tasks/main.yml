@@ -1,0 +1,30 @@
+
+-   name: Install python setup tools
+    become: true
+    become_user: root
+    yum: name=python-setuptools
+    tags: docker
+
+-   name: Install Pypi
+    become: true
+    become_user: root
+    easy_install: name=pip
+    tags: docker
+
+-   name: Install docker-py
+    become: true
+    become_user: root
+    pip: name=docker-py
+    tags: docker
+
+-   name: Install Docker
+    become: true
+    become_user: root
+    yum: name=docker state=latest
+    tags: docker
+
+-   name: Make sure Docker is running
+    become: true
+    become_user: root
+    service: name=docker state=running
+    tags: docker

@@ -9,7 +9,8 @@
           user: vagrant
     - zsh
     - williamyeh.oracle-java	
-
-
+    - role: docker
+      server:
+          user: vagrant
 
 
