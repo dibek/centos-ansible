@@ -1,5 +1,7 @@
 - hosts: all
 
+  become: true
+  become_user: root
   roles:
     - prerequisites    
     - role: nvm
@@ -12,5 +14,6 @@
     - role: docker
       server:
           user: vagrant
-
+    - geerlingguy.java
+    - geerlingguy.elasticsearch 
 
